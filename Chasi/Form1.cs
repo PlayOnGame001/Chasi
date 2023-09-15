@@ -17,7 +17,7 @@ namespace Chasi
         Graphics chiferblad;
         Graphics clocke;
         Timer timer;
-        int x = 209, y = 60;
+        int x = 150, y = 20;
         public Form1()
         {
             InitializeComponent();
@@ -55,22 +55,22 @@ namespace Chasi
             chiferblad.DrawString("9", font, Brushes.Black, 55, pictureBox1.Height / 2 - 5);
             chiferblad.DrawEllipse(Pens.Black, pictureBox1.Width / 7, pictureBox1.Height / 7, 250, 250);
 
-            double HourAngle = (time.Hour * 360.0 / 12.0 + (time.Minute / 60.0) * (360.0 / 12.0)) - 70;
-            double HourRadians = Math.PI * HourAngle / 180.0;
-            int HourX = (pictureBox1.Width / 2) + (int)(Math.Cos(HourRadians) * (250 / 2 - 55));
-            int HourY = (pictureBox1.Height / 2) + (int)(Math.Sin(HourRadians) * (250 / 2 - 55));
+            double Hour = (time.Hour * 360.0 / 12.0 + (time.Minute / 60.0) * (360.0 / 12.0)) - 70;
+            double HourR = Math.PI * Hour / 180.0;
+            int HourX = (pictureBox1.Width / 2) + (int)(Math.Cos(HourR) * (250 / 2 - 55));
+            int HourY = (pictureBox1.Height / 2) + (int)(Math.Sin(HourR) * (250 / 2 - 55));
             chiferblad.DrawLine(Pens.Black, pictureBox1.Width / 2, pictureBox1.Height / 2, HourX, HourY);
 
-            double MinAngle = time.Minute * 360 / 60 - 90;
-            double MinRadians = Math.PI * MinAngle / 180;
-            int MinX = (pictureBox1.Width / 2) + (int)(Math.Cos(MinRadians) * (250 / 2 - 35));
-            int MinY = (pictureBox1.Height / 2) + (int)(Math.Sin(MinRadians) * (250 / 2 - 35));
+            double Min = time.Minute * 360 / 60 - 90;
+            double MinR = Math.PI * Min / 180;
+            int MinX = (pictureBox1.Width / 2) + (int)(Math.Cos(MinR) * (250 / 2 - 35));
+            int MinY = (pictureBox1.Height / 2) + (int)(Math.Sin(MinR) * (250 / 2 - 35));
             chiferblad.DrawLine(Pens.Black, pictureBox1.Width / 2, pictureBox1.Height / 2, MinX, MinY);
 
-            double SecAngle = (time.Second * 360.0 / 60.0) - 90;
-            double SecRadians = Math.PI * SecAngle / 180.0;
-            int SecX = (pictureBox1.Width / 2) + (int)(Math.Cos(SecRadians) * (250 / 2 - 15));
-            int SecY = (pictureBox1.Height / 2) + (int)(Math.Sin(SecRadians) * (250 / 2 - 15));
+            double Sec = (time.Second * 360.0 / 60.0) - 90;
+            double SecR = Math.PI * Sec / 180.0;
+            int SecX = (pictureBox1.Width / 2) + (int)(Math.Cos(SecR) * (250 / 2 - 15));
+            int SecY = (pictureBox1.Height / 2) + (int)(Math.Sin(SecR) * (250 / 2 - 15));
             chiferblad.DrawLine(Pens.Red, pictureBox1.Width / 2, pictureBox1.Height / 2, SecX, SecY);
 
             chiferblad.FillEllipse(Brushes.Black, pictureBox1.Width / 2 - 4, pictureBox1.Height / 2 - 4, 5, 8);
